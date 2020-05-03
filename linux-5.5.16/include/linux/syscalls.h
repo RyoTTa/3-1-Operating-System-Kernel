@@ -286,6 +286,7 @@ static inline void addr_limit_user_check(void)
  * include the prototypes if CONFIG_ARCH_HAS_SYSCALL_WRAPPER is enabled.
  */
 #ifndef CONFIG_ARCH_HAS_SYSCALL_WRAPPER
+asmlinkage int sys_hello(int x, int y);
 asmlinkage long sys_io_setup(unsigned nr_reqs, aio_context_t __user *ctx);
 asmlinkage long sys_io_destroy(aio_context_t ctx);
 asmlinkage long sys_io_submit(aio_context_t, long,
@@ -1418,5 +1419,4 @@ long ksys_old_shmctl(int shmid, int cmd, struct shmid_ds __user *buf);
 long compat_ksys_semtimedop(int semid, struct sembuf __user *tsems,
 			    unsigned int nsops,
 			    const struct old_timespec32 __user *timeout);
-
 #endif
